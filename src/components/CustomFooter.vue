@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p class="gap-1 text-sm text-primary-100">
+    <p class="gap-1 text-sm text-primary-300">
       &copy; 2023{{ year > 2023 ? ` - ${year}` : '' }}
       Justus G.
     </p>
@@ -28,6 +28,5 @@ export default {
 <style lang="scss" scoped>
 footer {
   @apply flex items-center justify-between gap-4 bg-primary-800 px-4 py-2;
-  height: 40px;
 }
 </style>

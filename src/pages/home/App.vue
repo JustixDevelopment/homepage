@@ -1,15 +1,19 @@
 <template>
-  <div class="app-container flex min-w-full flex-col items-center justify-center"></div>
+  <div class="app-container flex min-w-full flex-col justify-center">
+    <Home />
+  </div>
   <CustomFooter />
 </template>
 
 <script>
 import CustomFooter from '@/components/CustomFooter.vue'
+import Home from './components/Home.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    CustomFooter
+    CustomFooter,
+    Home
   },
   methods: {
     updateViewportVariables() {

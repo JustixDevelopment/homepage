@@ -14,8 +14,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        appNotFound: resolve(__dirname, '404.html'),
+        // main page
         appHome: resolve(__dirname, 'index.html'),
+        // error pages
+        appNotFound: resolve(__dirname, '404.html'),
+        // other pages
         appImprint: resolve(__dirname, 'imprint.html')
       }
     }
