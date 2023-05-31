@@ -1,0 +1,17 @@
+<template>
+  <div class="popup" @click.stop.prevent="$emit('close')">
+    <slot></slot>
+  </div>
+</template>
+<script>
+export default {
+  name: 'PopUp',
+  emits: ['close']
+}
+</script>
+<style lang="scss">
+.popup {
+  @apply absolute z-30 flex w-full flex-col items-center justify-center bg-primary-950 bg-opacity-80;
+  height: calc(var(--vh, 1vh) * 100 - 40px);
+}
+</style>
