@@ -4,7 +4,7 @@
       &copy; 2023{{ year > 2023 ? ` - ${year}` : '' }}
       Justus G.
     </p>
-    <a :href="isImprint ? '/' : '/imprint'" class="flex items-center gap-1">
+    <a :href="isImprint ? '/' : '/imprint'" class="flex items-center gap-1 text-primary-50">
       <span class="material-symbols-rounded text-sm">link</span>
       {{ isImprint ? 'Home' : 'Imprint' }}
     </a>

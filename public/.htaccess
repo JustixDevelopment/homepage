@@ -1,6 +1,10 @@
 RewriteEngine On
 RewriteBase /
 
+# add .html to the end of the file name
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+
 # redirect root directory to 404.html if the specified file doesn't exist
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -10,7 +14,3 @@ RewriteRule ^([^\/]*)$ /404.html [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\/]*)$ $1 [L,QSA]
-
-# add .html to the end of the file name
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html
