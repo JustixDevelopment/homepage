@@ -7,7 +7,7 @@
 export default {
   name: 'PopUp',
   emits: ['close']
-}
+};
 </script>
 <style lang="scss">
 .popup {

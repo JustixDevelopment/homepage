@@ -33,7 +33,7 @@ export default {
     },
     required: Boolean
   }
-}
+};
 </script>
 <style lang="scss">
 .input-container {

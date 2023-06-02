@@ -6,7 +6,7 @@
   </form>
 </template>
 <script>
-import CustomButton from '@/components/CustomButton.vue'
+import CustomButton from '@/components/CustomButton.vue';
 
 export default {
   name: 'CustomForm',
@@ -21,7 +21,7 @@ export default {
   components: {
     CustomButton
   }
-}
+};
 </script>
 <style lang="scss">
 form {

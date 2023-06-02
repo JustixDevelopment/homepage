@@ -27,5 +27,5 @@ export default {
     }
   },
   emits: ['button-click']
-}
+};
 </script>

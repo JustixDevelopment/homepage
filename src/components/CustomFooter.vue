@@ -16,13 +16,13 @@ export default {
   name: 'CustomFooter',
   computed: {
     isImprint() {
-      return window.location.pathname.startsWith('/imprint')
+      return window.location.pathname.startsWith('/imprint');
     },
     year() {
-      return new Date().getFullYear()
+      return new Date().getFullYear();
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

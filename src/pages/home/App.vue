@@ -1,13 +1,13 @@
 <template>
-  <div class="app-container flex min-w-full flex-col justify-center">
+  <div class="app-container min-w-full justify-center">
     <Home />
   </div>
   <CustomFooter />
 </template>
 
 <script>
-import CustomFooter from '@/components/CustomFooter.vue'
-import Home from './components/Home.vue'
+import CustomFooter from '@/components/CustomFooter.vue';
+import Home from './components/Home.vue';
 
 export default {
   name: 'HomePage',
@@ -18,17 +18,17 @@ export default {
   methods: {
     updateViewportVariables() {
       let vh = document.documentElement.clientHeight * 0.01,
-        vw = window.innerWidth * 0.01
-      document.documentElement.style.setProperty('--vh', `${vh}px`)
-      document.documentElement.style.setProperty('--vw', `${vw}px`)
+        vw = window.innerWidth * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      document.documentElement.style.setProperty('--vw', `${vw}px`);
     }
   },
   mounted() {
-    window.addEventListener('resize', this.updateViewportVariables)
+    window.addEventListener('resize', this.updateViewportVariables);
 
-    this.updateViewportVariables()
+    this.updateViewportVariables();
   }
-}
+};
 </script>
 
 <style lang="scss">

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import CustomFooter from '@/components/CustomFooter.vue'
-import Imprint from './components/Imprint.vue'
+import CustomFooter from '@/components/CustomFooter.vue';
+import Imprint from './components/Imprint.vue';
 
 export default {
   name: 'ImprintPage',
@@ -18,17 +18,17 @@ export default {
   methods: {
     updateViewportVariables() {
       let vh = document.documentElement.clientHeight * 0.01,
-        vw = window.innerWidth * 0.01
-      document.documentElement.style.setProperty('--vh', `${vh}px`)
-      document.documentElement.style.setProperty('--vw', `${vw}px`)
+        vw = window.innerWidth * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      document.documentElement.style.setProperty('--vw', `${vw}px`);
     }
   },
   mounted() {
-    window.addEventListener('resize', this.updateViewportVariables)
+    window.addEventListener('resize', this.updateViewportVariables);
 
-    this.updateViewportVariables()
+    this.updateViewportVariables();
   }
-}
+};
 </script>
 
 <style lang="scss">

@@ -60,7 +60,7 @@
 export default {
   name: 'Imprint',
   components: {}
-}
+};
 </script>
 
 <style lang="scss" scoped>
