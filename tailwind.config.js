@@ -25,7 +25,14 @@ module.exports = {
       text: ['Inter', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
       title: ['Outfit', 'Helvetica Neue', 'Helvetica', 'sans-serif']
     },
-    extend: {}
+    extend: {
+      keyframes: {
+        'bounce-negative': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(12.5%)' }
+        }
+      }
+    }
   },
   plugins: []
 };

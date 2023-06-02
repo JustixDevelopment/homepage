@@ -12,6 +12,6 @@ export default {
 <style lang="scss">
 .hero {
   @apply relative flex w-full flex-col items-center justify-center;
-  height: calc(var(--vh, 1vh) * 100 - 40px);
+  height: calc(var(--vh, 1vh) * 100);
 }
 </style>
