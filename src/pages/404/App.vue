@@ -1,15 +1,23 @@
 <template>
-  <div class="app-container flex min-w-full flex-col items-center justify-center"></div>
+  <div class="app-container flex min-w-full flex-col items-center justify-center">
+    <h1 class="text-error">Not Found</h1>
+    <p class="mt-2">The requested page does not exist.</p>
+    <CustomButton class="home-button" @button-click="redirectToHome($event)" secondary>
+      <span class="material-symbols-rounded">home</span>Home
+    </CustomButton>
+  </div>
   <CustomFooter />
 </template>
 
 <script>
 import CustomFooter from '@/components/CustomFooter.vue'
+import CustomButton from '@/components/CustomButton.vue'
 
 export default {
   name: 'NotFoundPage',
   components: {
-    CustomFooter
+    CustomFooter,
+    CustomButton
   },
   methods: {
     updateViewportVariables() {
@@ -17,6 +25,9 @@ export default {
         vw = window.innerWidth * 0.01
       document.documentElement.style.setProperty('--vh', `${vh}px`)
       document.documentElement.style.setProperty('--vw', `${vw}px`)
+    },
+    redirectToHome() {
+      window.location.href = '/'
     }
   },
   mounted() {
@@ -53,5 +64,16 @@ body {
 
 .app-container {
   min-height: calc(var(--vh, 1vh) * 100 - 40px);
+}
+
+/* Component styles */
+
+.home-button {
+  @apply mt-4;
+  width: 120px;
+
+  .material-symbols-rounded {
+    @apply text-sm;
+  }
 }
 </style>

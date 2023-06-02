@@ -17,7 +17,7 @@ module.exports = {
         100: '#e2e8f0',
         50: '#f4f4f5'
       },
-      secondary: '#5b21b6',
+      accent: '#5b21b6',
       link: '#4ca6ff',
       error: '#c93838'
     },

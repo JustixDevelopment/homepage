@@ -1,6 +1,6 @@
 {
-    "name": "Marauders Map",
-    "short_name": "Marauders Map",
+    "name": "JustixDev",
+    "short_name": "JustixDev",
     "icons": [
         {
             "src": "/icons/android-chrome-192x192.png",
@@ -14,6 +14,5 @@
         }
     ],
     "theme_color": "#64748b",
-    "background_color": "#64748b",
-    "display": "standalone"
+    "background_color": "#64748b"
 }
