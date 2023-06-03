@@ -2,13 +2,7 @@
   <Hero>
     <div class="hero-wallpaper absolute top-0 -z-20 h-full w-full bg-cover bg-center"></div>
     <div class="flex flex-col items-center">
-      <img
-        class="rounded-full object-cover"
-        src="@/assets/portrait.webp"
-        width="142"
-        height="142"
-        alt="Justus G."
-      />
+      <img class="rounded-full object-cover" src="@/assets/portrait.webp" width="142" height="142" alt="Justus G." />
       <h1 class="mt-5">Justus G.</h1>
       <p class="text-md mt-2.5 text-center font-title uppercase tracking-widest text-primary-300">
         Fix the cause,<br />not the symptom
@@ -29,172 +23,72 @@
   <section class="skills-tools flex-wrap justify-around gap-8">
     <div class="skills">
       <!-- HTML5 -->
-      <img
-        src="@/assets/icons/html5.svg"
-        alt="HTML5"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="html5.svg" alt="HTML5" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- CSS3 -->
-      <img
-        src="@/assets/icons/css3.svg"
-        alt="CSS3"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="css3.svg" alt="CSS3" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- SASS/SCSS -->
-      <img
-        src="@/assets/icons/sass.svg"
-        alt="SASS / SCSS"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="sass.svg" alt="SASS / SCSS" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- JavaScript -->
-      <img
-        src="@/assets/icons/javascript.svg"
-        alt="JavaScript"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="javascript.svg" alt="JavaScript" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Vue.js -->
-      <img
-        src="@/assets/icons/vue.svg"
-        alt="Vue.js"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="vue.svg" alt="Vue.js" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- PHP -->
-      <img src="@/assets/icons/php.svg" alt="PHP" :width="this.iconSize" :height="this.iconSize" />
+      <Icon fileName="php.svg" alt="PHP" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Java -->
-      <img
-        src="@/assets/icons/java.svg"
-        alt="Java"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="java.svg" alt="Java" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Spring -->
-      <img
-        src="@/assets/icons/spring.svg"
-        alt="Spring"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="spring.svg" alt="Spring" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Python -->
-      <img
-        src="@/assets/icons/python.svg"
-        alt="Python"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="python.svg" alt="Python" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- bash -->
-      <img
-        src="@/assets/icons/bash.svg"
-        alt="bash"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="bash.svg" alt="bash" :width="this.iconSize" :height="this.iconSize" />
     </div>
 
     <div class="tools">
       <!-- JetBrains -->
-      <img
-        src="@/assets/icons/jetbrains.svg"
-        alt="JetBrains"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="jetbrains.svg" alt="JetBrains" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- VSCode -->
-      <img
-        src="@/assets/icons/vscode.svg"
-        alt="Visual Studio Code"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="vscode.svg" alt="Visual Studio Code" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- git -->
-      <img src="@/assets/icons/git.svg" alt="git" :width="this.iconSize" :height="this.iconSize" />
+      <Icon fileName="git.svg" alt="git" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- TailwindCSS -->
-      <img
-        src="@/assets/icons/tailwind.svg"
-        alt="TailwindCSS"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="tailwind.svg" alt="TailwindCSS" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- MySQL -->
-      <img
-        src="@/assets/icons/mysql.svg"
-        alt="MySQL"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="mysql.svg" alt="MySQL" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Docker -->
-      <img
-        src="@/assets/icons/docker.svg"
-        alt="Docker"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="docker.svg" alt="Docker" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Figma -->
-      <img
-        src="@/assets/icons/figma.svg"
-        alt="Figma"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="figma.svg" alt="Figma" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Illustrator -->
-      <img
-        src="@/assets/icons/illustrator.svg"
-        alt="Adobe Illustrator"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="illustrator.svg" alt="Adobe Illustrator" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Photoshop -->
-      <img
-        src="@/assets/icons/photoshop.svg"
-        alt="Adobe Photoshop"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="photoshop.svg" alt="Adobe Photoshop" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- Canva -->
-      <img
-        src="@/assets/icons/canva.svg"
-        alt="Canva"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="canva.svg" alt="Canva" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- GitHub -->
-      <img
-        src="@/assets/icons/github.svg"
-        alt="GitHub"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="github.svg" alt="GitHub" :width="this.iconSize" :height="this.iconSize" />
 
       <!-- FileZilla -->
-      <img
-        src="@/assets/icons/filezilla.svg"
-        alt="FileZilla"
-        :width="this.iconSize"
-        :height="this.iconSize"
-      />
+      <Icon fileName="filezilla.svg" alt="FileZilla" :width="this.iconSize" :height="this.iconSize" />
     </div>
   </section>
 
@@ -232,11 +126,13 @@
 
 <script>
 import Hero from '@/components/Hero.vue';
+import Icon from '@/components/Icon.vue';
 
 export default {
   name: 'Home',
   components: {
-    Hero
+    Hero,
+    Icon
   },
   data() {
     return {
@@ -246,6 +142,22 @@ export default {
     };
   },
   methods: {
+    isElementInView(element) {
+      const { top, bottom } = element.getBoundingClientRect();
+
+      return top <= window.innerHeight && bottom >= 0;
+    },
+    animateElements() {
+      // skills + tools
+      const skillsToolsContainer = document.querySelector('.skills-tools');
+
+      if (this.isElementInView(skillsToolsContainer)) skillsToolsContainer.style.animationPlayState = 'running';
+
+      // career
+      const careerContainer = document.querySelector('.career');
+
+      if (this.isElementInView(careerContainer)) careerContainer.style.animationPlayState = 'running';
+    },
     alignIconsInLetterForm(iconsContainer, letterArray) {
       const iconNodes = iconsContainer.getElementsByTagName('IMG');
 
@@ -316,32 +228,17 @@ export default {
         }
       }
 
-      iconsContainer.style.width =
-        maxColumn * this.iconSize + (maxColumn - 1) * this.iconGapSize + 'px';
+      iconsContainer.style.width = maxColumn * this.iconSize + (maxColumn - 1) * this.iconGapSize + 'px';
       iconsContainer.style.height = (row + 1) * this.iconSize + row * this.iconGapSize + 'px';
     },
     scrollDown() {
-      document
-        .querySelector('.skills-tools')
-        .scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.querySelector('.skills-tools').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   },
   mounted() {
     // animate and align skills + tools icons
-    this.alignIconsInLetterForm(document.querySelector('.skills'), [
-      '1111',
-      '   1',
-      '   1',
-      '1  1',
-      ' 11 '
-    ]);
-    this.alignIconsInLetterForm(document.querySelector('.tools'), [
-      ' 111',
-      '1   ',
-      '1 11',
-      '1  1',
-      ' 111'
-    ]);
+    this.alignIconsInLetterForm(document.querySelector('.skills'), ['1111', '   1', '   1', '1  1', ' 11 ']);
+    this.alignIconsInLetterForm(document.querySelector('.tools'), [' 111', '1   ', '1 11', '1  1', ' 111']);
 
     // career
     let currentCareerAnimationDelay = 0;
@@ -350,23 +247,8 @@ export default {
     });
 
     // scroll animations
-    window.addEventListener(
-      'scroll',
-      () => {
-        // skills + tools
-        const skillsToolsContainer = document.querySelector('.skills-tools');
-
-        if (window.scrollY >= skillsToolsContainer.scrollHeight)
-          skillsToolsContainer.style.animationPlayState = 'running';
-
-        // career
-        const careerContainer = document.querySelector('.career');
-
-        if (window.scrollY >= careerContainer.scrollHeight)
-          careerContainer.style.animationPlayState = 'running';
-      },
-      { passive: true }
-    );
+    window.addEventListener('scroll', this.animateElements, { passive: true });
+    this.animateElements();
   }
 };
 </script>
