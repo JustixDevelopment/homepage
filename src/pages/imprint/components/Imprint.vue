@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-4xl px-8 py-6 lg:py-10">
+  <div class="w-full max-w-3xl px-8 py-6 lg:py-10">
     <h1>Imprint</h1>
     <div class="mt-2 flex flex-col gap-2">
       <h2>Information according to § 5 TMG</h2>

@@ -1,28 +1,28 @@
 <template>
   <img
-    :src="this.assetUrl('/assets/icons/' + this.fileName)"
+    :src="this.assetUrl('/assets/' + this.fileName)"
     :alt="this.alt"
     :width="this.width"
     :height="this.height"
-    :loading="this.lazy ? 'lazy' : 'eager'"
+    :loading="this.eager ? 'eager' : 'lazy'"
   />
 </template>
 
 <script>
-const icons = import.meta.globEager('@/assets/icons/*');
+const icons = import.meta.globEager('@/assets/*/*');
 
 console.log(icons);
 
 export default {
-  name: 'Home',
+  name: 'ImageAsset',
   props: {
     fileName: String,
     alt: String,
     width: Number,
     height: Number,
-    lazy: {
+    eager: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   methods: {

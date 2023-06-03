@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'PopUp',
+  name: 'Hero',
   emits: ['close']
 };
 </script>
