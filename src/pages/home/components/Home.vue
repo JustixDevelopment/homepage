@@ -241,7 +241,8 @@ export default {
   data() {
     return {
       iconSize: 48,
-      iconGapSize: 6
+      iconGapSize: 6,
+      currentAnimationDelay: 0
     };
   },
   methods: {
@@ -285,6 +286,7 @@ export default {
         icon.style.position = 'absolute';
         icon.style.top = top + 'px';
         icon.style.left = left + 'px';
+        icon.style.animationDelay = (this.currentAnimationDelay += 100) + 'ms';
 
         column++;
       }
@@ -301,6 +303,7 @@ export default {
           icon.style.position = 'absolute';
           icon.style.top = top + 'px';
           icon.style.left = left + 'px';
+          icon.style.animationDelay = (this.currentAnimationDelay += 100) + 'ms';
 
           column++;
 
@@ -324,7 +327,7 @@ export default {
     }
   },
   mounted() {
-    // Skills + Tools icons
+    // animate and align skills + tools icons
     this.alignIconsInLetterForm(document.querySelector('.skills'), [
       '1111',
       '   1',
@@ -339,6 +342,31 @@ export default {
       '1  1',
       ' 111'
     ]);
+
+    // career
+    let currentCareerAnimationDelay = 0;
+    document.querySelectorAll('.career-item').forEach((careerItem) => {
+      careerItem.style.animationDelay = (currentCareerAnimationDelay += 500) + 'ms';
+    });
+
+    // scroll animations
+    window.addEventListener(
+      'scroll',
+      () => {
+        // skills + tools
+        const skillsToolsContainer = document.querySelector('.skills-tools');
+
+        if (window.scrollY >= skillsToolsContainer.scrollHeight)
+          skillsToolsContainer.style.animationPlayState = 'running';
+
+        // career
+        const careerContainer = document.querySelector('.career');
+
+        if (window.scrollY >= careerContainer.scrollHeight)
+          careerContainer.style.animationPlayState = 'running';
+      },
+      { passive: true }
+    );
   }
 };
 </script>
@@ -363,11 +391,17 @@ section {
 /* skills + tools  */
 
 .skills-tools {
+  animation-play-state: paused;
+
   > div {
     @apply relative inline-block text-center;
+    animation-play-state: inherit;
 
     img {
-      @apply rounded-xl bg-primary-800 p-2;
+      @apply animate-[fade-in_0.5s_ease-out] rounded-xl bg-primary-800 p-2 opacity-0;
+
+      animation-fill-mode: forwards;
+      animation-play-state: inherit;
     }
   }
 }
@@ -376,43 +410,61 @@ section {
 
 .career {
   @apply flex-col;
+  animation-play-state: paused;
 
   h2 {
     @apply text-center;
   }
 
-  .career-items .career-item {
-    @apply relative flex pl-8;
+  .career-items {
+    animation-play-state: inherit;
 
-    &::before {
-      @apply absolute h-full bg-primary-50;
+    .career-item {
+      @apply relative flex pl-8;
+      animation-play-state: inherit;
 
-      content: '';
-      left: 4px;
-      width: 2px;
-    }
+      &::before {
+        @apply absolute h-full max-h-0 animate-[grow-to-b_0.5s_linear] bg-primary-50;
 
-    &::after {
-      @apply absolute left-0 top-0 rounded-full bg-primary-50 sm:top-6;
+        animation-delay: inherit;
+        animation-fill-mode: forwards;
+        animation-play-state: inherit;
 
-      content: '';
-      height: 10px;
-      width: 10px;
-    }
-
-    .career-item-details {
-      @apply flex flex-col py-4;
-
-      .career-item-time {
-        @apply absolute top-1.5 flex translate-y-[-50%] items-center font-title text-xs uppercase text-primary-300 sm:-left-5 sm:top-7 sm:translate-x-[-100%];
+        content: '';
+        left: 4px;
+        width: 2px;
       }
 
-      .career-item-title {
-        @apply text-xl;
+      &::after {
+        @apply absolute left-0 top-0 animate-[fade-in_0.5s_linear] rounded-full bg-primary-50 opacity-0 sm:top-6;
+
+        animation-delay: inherit;
+        animation-fill-mode: forwards;
+        animation-play-state: inherit;
+
+        content: '';
+        height: 10px;
+        width: 10px;
       }
 
-      .career-item-description {
-        @apply text-primary-400;
+      .career-item-details {
+        @apply flex animate-[fade-in_0.5s_ease-out] flex-col py-4 opacity-0;
+
+        animation-delay: inherit;
+        animation-fill-mode: forwards;
+        animation-play-state: inherit;
+
+        .career-item-time {
+          @apply absolute top-1.5 flex translate-y-[-50%] items-center font-title text-xs uppercase text-primary-300 sm:-left-5 sm:top-7 sm:translate-x-[-100%];
+        }
+
+        .career-item-title {
+          @apply text-xl;
+        }
+
+        .career-item-description {
+          @apply text-primary-400;
+        }
       }
     }
   }
