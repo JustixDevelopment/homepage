@@ -9,7 +9,7 @@
 </template>
 
 <script>
-const icons = import.meta.globEager('@/assets/*/*');
+const icons = import.meta.globEager('@/assets/**/*');
 
 console.log(icons);
 

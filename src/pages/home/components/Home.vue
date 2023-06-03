@@ -2,7 +2,7 @@
   <Hero>
     <div class="hero-wallpaper absolute top-0 -z-20 h-full w-full bg-cover bg-center"></div>
     <div class="flex flex-col items-center">
-      <img class="rounded-full object-cover" src="@/assets/portrait.webp" width="142" height="142" alt="Justus G." />
+      <ImageAsset class="rounded-full object-cover" fileName="portrait.webp" alt="Justus G." width="142" height="142" />
       <h1 class="mt-5">Justus G.</h1>
       <p class="text-md mt-2.5 text-center font-title uppercase tracking-widest text-primary-300">
         Fix the cause,<br />not the symptom
@@ -17,7 +17,7 @@
     </div>
   </Hero>
 
-  <section class="skills-tools flex-wrap justify-around gap-20">
+  <section class="skills-tools flex-wrap justify-around gap-20" style="margin: 8rem auto">
     <div class="skills">
       <!-- HTML5 -->
       <ImageAsset fileName="icons/html5.svg" alt="HTML5" :width="this.iconSize" :height="this.iconSize" />
@@ -349,7 +349,7 @@ export default {
 }
 
 section {
-  @apply mx-4 my-32 flex max-w-3xl sm:mx-auto;
+  @apply mx-4 my-16 flex max-w-3xl sm:mx-auto;
 
   h2 {
     @apply text-center;
