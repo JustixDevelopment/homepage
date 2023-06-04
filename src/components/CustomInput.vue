@@ -2,9 +2,10 @@
   <div class="input-container">
     <label :for="'input-' + name">{{ title }}</label>
     <input
+      v-if="type != 'textarea'"
       :value="value"
-      @input="$emit('update:value', $event.target.value)"
-      @blur="$emit('update:value', $event.target.value)"
+      @input="onInput"
+      @blur="onBlur"
       :id="'input-' + name"
       :type="type"
       :name="name"
@@ -13,6 +14,18 @@
       :maxlength="maxLength"
       class="rounded-xl border-2 border-solid border-primary-700 bg-transparent px-3 py-2 font-text text-sm focus:outline-none"
     />
+    <textarea
+      v-else
+      :value="value"
+      @input="onInput"
+      @blur="onBlur"
+      :id="'input-' + name"
+      :name="name"
+      :minlength="minLength"
+      :maxlength="maxLength"
+      class="rounded-xl border-2 border-solid border-primary-700 bg-transparent px-3 py-2 font-text text-sm focus:outline-none"
+      required
+    ></textarea>
   </div>
 </template>
 <script>
@@ -24,14 +37,31 @@ export default {
     type: String,
     name: String,
     minLength: {
-      type: String,
+      type: Number,
       default: null
     },
     maxLength: {
-      type: String,
+      type: Number,
       default: null
     },
     required: Boolean
+  },
+  methods: {
+    onInput(event) {
+      const targetElement = event.target;
+      const value = targetElement.value;
+
+      if (value.length === 0) targetElement.classList.remove('not-empty');
+      else targetElement.classList.add('not-empty');
+
+      this.emitValueUpdate(value);
+    },
+    onBlur(event) {
+      this.emitValueUpdate(event.target.value);
+    },
+    emitValueUpdate(value) {
+      this.$emit('update:value', value);
+    }
   }
 };
 </script>
@@ -45,14 +75,25 @@ export default {
     transition: translate 0.2s ease-out;
 
     &:has(+ input:focus),
-    &:has(+ input:valid) {
+    &:has(+ input.not-empty) {
       @apply z-10 bg-primary-900;
       translate: 0 -1.25rem;
     }
+
+    &:has(+ textarea:focus),
+    &:has(+ textarea.not-empty) {
+      @apply z-10 bg-primary-900;
+      translate: 0 -3rem;
+    }
   }
 
-  input {
+  input,
+  textarea {
     @apply relative;
+  }
+
+  textarea {
+    @apply max-h-[400px] min-h-[100px] resize-y;
   }
 }
 </style>

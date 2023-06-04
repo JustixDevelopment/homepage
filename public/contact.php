@@ -15,14 +15,14 @@ if(isset($_POST['name']) && isset($_POST['subject']) && isset($_POST['message'])
     try {
         // server settings
         $mail->isSMTP();
-        $mail->Host       = 'smtp.example.com';
+        $mail->Host       = $mailServer;
+        $mail->Port       = $mailPort;
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'user@example.com';
-        $mail->Password   = 'secret';
+        $mail->Username   = $mailUsername;
+        $mail->Password   = $mailPassword;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
 
-        // recipients
+        // addresses
         $mail->setFrom($mailSender, $mailSenderName);
         $mail->addAddress($mailReceiver, $mailReceiverName);
 
@@ -33,6 +33,8 @@ if(isset($_POST['name']) && isset($_POST['subject']) && isset($_POST['message'])
         $mail->AltBody    = "New message from contact form:\n\nName: $name\nSubject: $subject\nMessage:\n$message";
 
         $mail->send();
+
+        header("location: /");
     } catch (Exception $ex) {
         echo "Message could not be sent: {$mail->ErrorInfo}";
     }

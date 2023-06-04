@@ -2,7 +2,13 @@
   <Hero>
     <div class="hero-wallpaper absolute top-0 -z-20 h-full w-full bg-cover bg-center"></div>
     <div class="flex flex-col items-center">
-      <ImageAsset class="rounded-full object-cover" fileName="portrait.webp" alt="Justus G." width="142" height="142" />
+      <ImageAsset
+        class="rounded-full object-cover"
+        fileName="portrait.webp"
+        alt="Justus G."
+        :width="142"
+        :height="142"
+      />
       <h1 class="mt-5">Justus G.</h1>
       <p class="text-md mt-2.5 text-center font-title uppercase tracking-widest text-primary-300">
         Fix the cause,<br />not the symptom
@@ -159,17 +165,27 @@
       </div>
     </div>
   </section>
+
+  <CustomForm title="Contact" submitText="Send" action="/contact.php" method="POST" class="contact-form mx-auto mb-16">
+    <CustomInput title="Name" type="name" name="name" required />
+    <CustomInput title="Subject" type="text" name="subject" required />
+    <CustomInput title="Message" type="textarea" name="message" :minLength="25" />
+  </CustomForm>
 </template>
 
 <script>
 import Hero from '@/components/Hero.vue';
 import ImageAsset from '@/components/ImageAsset.vue';
+import CustomForm from '@/components/CustomForm.vue';
+import CustomInput from '@/components/CustomInput.vue';
 
 export default {
   name: 'Home',
   components: {
     Hero,
-    ImageAsset
+    ImageAsset,
+    CustomForm,
+    CustomInput
   },
   data() {
     return {
@@ -201,6 +217,11 @@ export default {
       const careerContainer = document.querySelector('.career');
 
       if (this.isElementInView(careerContainer)) careerContainer.style.animationPlayState = 'running';
+
+      // contact form
+      const contactForm = document.querySelector('.contact-form');
+
+      if (this.isElementInView(contactForm)) contactForm.style.animationPlayState = 'running';
     },
     alignImageAssetsInLetterForm(iconsContainer, letterArray) {
       const iconNodes = iconsContainer.getElementsByTagName('IMG');
@@ -342,7 +363,7 @@ export default {
   background-image: url('@/assets/binnenalster.webp');
 
   &::after {
-    @apply relative -z-10 block h-full w-full bg-gradient-to-t from-primary-950 via-primary-900 opacity-[0.85];
+    @apply relative -z-10 block h-full w-full bg-gradient-to-t from-primary-950 via-primary-900 opacity-[0.825];
 
     content: '';
   }
@@ -497,5 +518,13 @@ section {
       }
     }
   }
+}
+
+/* contact form */
+
+.contact-form {
+  @apply animate-[fade-in_1s_ease-out];
+
+  animation-play-state: paused;
 }
 </style>
