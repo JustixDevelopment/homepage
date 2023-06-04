@@ -1,4 +1,21 @@
 <template>
+  <PopUp v-if="isMessageSentSet" @close="dismissMessage">
+    <div class="message-container">
+      <span class="message-icon material-symbols-rounded text-accent">check</span>
+      <p>Your message was sent successfully!</p>
+    </div>
+  </PopUp>
+
+  <PopUp v-if="isSendErrorSet" @close="dismissMessage">
+    <div class="message-container">
+      <span class="message-icon material-symbols-rounded text-error">error</span>
+      <p>
+        Your message could not be delivered:<br />
+        <span class="text-primary-400">{{ sendErrorText }}</span>
+      </p>
+    </div>
+  </PopUp>
+
   <Hero>
     <div class="hero-wallpaper absolute top-0 -z-20 h-full w-full bg-cover bg-center"></div>
     <div class="flex flex-col items-center">
@@ -167,13 +184,15 @@
   </section>
 
   <CustomForm title="Contact" submitText="Send" action="/contact.php" method="POST" class="contact-form mx-auto mb-16">
-    <CustomInput title="Name" type="name" name="name" required />
+    <CustomInput title="Name" type="full_name" name="name" required />
+    <CustomInput title="E-Mail" type="email" name="email" required />
     <CustomInput title="Subject" type="text" name="subject" required />
     <CustomInput title="Message" type="textarea" name="message" :minLength="25" />
   </CustomForm>
 </template>
 
 <script>
+import PopUp from '@/components/PopUp.vue';
 import Hero from '@/components/Hero.vue';
 import ImageAsset from '@/components/ImageAsset.vue';
 import CustomForm from '@/components/CustomForm.vue';
@@ -182,6 +201,7 @@ import CustomInput from '@/components/CustomInput.vue';
 export default {
   name: 'Home',
   components: {
+    PopUp,
     Hero,
     ImageAsset,
     CustomForm,
@@ -329,6 +349,20 @@ export default {
       const firstProjectsItem = document.querySelector('.projects-item');
       projectsItemContent.style.transform =
         'translateX(-' + this.currentProject * (firstProjectsItem.clientWidth + 16) + 'px)';
+    },
+    dismissMessage() {
+      window.location.href = '/';
+    }
+  },
+  computed: {
+    isMessageSentSet() {
+      return window.location.search.startsWith('?message_sent');
+    },
+    isSendErrorSet() {
+      return window.location.search.startsWith('?send_error=');
+    },
+    sendErrorText() {
+      return decodeURI(window.location.search.split('=')[1]);
     }
   },
   mounted() {
@@ -357,6 +391,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* messages */
+
+.message-container {
+  @apply flex flex-col items-center gap-6 rounded-xl bg-primary-900 p-8 text-center;
+
+  .message-icon {
+    @apply flex items-center justify-center rounded-full bg-primary-950 p-1.5 text-4xl;
+
+    height: 50px;
+    width: 50px;
+  }
+
+  > p {
+    @apply text-xl;
+  }
+}
+
 /* Hero */
 
 .hero-wallpaper {

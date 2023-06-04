@@ -71,18 +71,21 @@ export default {
 
   label {
     @apply absolute left-2 px-1 text-sm text-primary-100;
+
     translate: 0;
     transition: translate 0.2s ease-out;
 
     &:has(+ input:focus),
     &:has(+ input.not-empty) {
       @apply z-10 bg-primary-900;
+
       translate: 0 -1.25rem;
     }
 
     &:has(+ textarea:focus),
     &:has(+ textarea.not-empty) {
       @apply z-10 bg-primary-900;
+
       translate: 0 -3rem;
     }
   }
