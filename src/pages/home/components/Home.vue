@@ -11,7 +11,7 @@
       <span class="message-icon material-symbols-rounded text-error">error</span>
       <p>
         Your message could not be delivered:<br />
-        <span class="text-primary-400">{{ sendErrorText }}</span>
+        <span class="text-sm text-primary-400">{{ sendErrorText }}</span>
       </p>
     </div>
   </PopUp>
@@ -362,7 +362,7 @@ export default {
       return window.location.search.startsWith('?send_error=');
     },
     sendErrorText() {
-      return decodeURI(window.location.search.split('=')[1]);
+      return decodeURIComponent(window.location.search.split('=')[1].replace(/\+/g, ' '));
     }
   },
   mounted() {
@@ -396,6 +396,8 @@ export default {
 .message-container {
   @apply flex flex-col items-center gap-6 rounded-xl bg-primary-900 p-8 text-center;
 
+  max-width: min(500px, calc(100% - 1rem * 2));
+
   .message-icon {
     @apply flex items-center justify-center rounded-full bg-primary-950 p-1.5 text-4xl;
 
@@ -404,7 +406,7 @@ export default {
   }
 
   > p {
-    @apply text-xl;
+    @apply break-all text-xl;
   }
 }
 
