@@ -212,7 +212,7 @@ export default {
       iconSize: 48,
       projectImageSize: 36,
       iconGapSize: 6,
-      currentAnimationDelay: 0,
+      currentIconAnimationDelay: 0,
       currentProject: 0
     };
   },
@@ -283,7 +283,7 @@ export default {
         icon.style.position = 'absolute';
         icon.style.top = top + 'px';
         icon.style.left = left + 'px';
-        icon.style.animationDelay = (this.currentAnimationDelay += 100) + 'ms';
+        icon.style.animationDelay = (this.currentIconAnimationDelay += 100) + 'ms';
 
         column++;
       }
@@ -300,7 +300,7 @@ export default {
           icon.style.position = 'absolute';
           icon.style.top = top + 'px';
           icon.style.left = left + 'px';
-          icon.style.animationDelay = (this.currentAnimationDelay += 100) + 'ms';
+          icon.style.animationDelay = (this.currentIconAnimationDelay += 100) + 'ms';
 
           column++;
 
@@ -371,22 +371,20 @@ export default {
     this.alignImageAssetsInLetterForm(document.querySelector('.tools'), [' 111', '1   ', '1 11', '1  1', ' 111']);
 
     // projects
-    let currentProjectsAnimationDelay = 0;
+    let currentProjectItemAnimationDelay = 0;
+
     document.querySelectorAll('.projects-item').forEach((projectsItem) => {
-      projectsItem.style.animationDelay = (currentProjectsAnimationDelay += 250) + 'ms';
+      projectsItem.style.animationDelay = (currentProjectItemAnimationDelay += 250) + 'ms';
     });
+
     this.updateProject();
 
     // career
-    const careerItems = document.querySelectorAll('.career-item');
-    let currentCareerAnimationDelay = 0;
-    careerItems.forEach((careerItem) => {
-      careerItem.style.animationDelay = (currentCareerAnimationDelay += 500) + 'ms';
-    });
+    let currentCareerItemAnimationDelay = 0;
 
-    // contact form
-    document.querySelector('.contact-form').style.animationDelay =
-      careerItems.length * 500 + 500 /* animation duration */ + 'ms';
+    document.querySelectorAll('.career-item').forEach((careerItem) => {
+      careerItem.style.animationDelay = (currentCareerItemAnimationDelay += 500) + 'ms';
+    });
 
     // scroll animations
     window.addEventListener('scroll', this.animateElements, { passive: true });
@@ -396,6 +394,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+section {
+  @apply mx-4 my-16 flex max-w-3xl sm:mx-auto;
+
+  h2 {
+    @apply text-center;
+  }
+}
+
 /* messages */
 
 .message-container {
@@ -424,14 +430,6 @@ export default {
     @apply relative -z-10 block h-full w-full bg-gradient-to-t from-primary-950 via-primary-900 opacity-[0.825];
 
     content: '';
-  }
-}
-
-section {
-  @apply mx-4 my-16 flex max-w-3xl sm:mx-auto;
-
-  h2 {
-    @apply text-center;
   }
 }
 
@@ -581,7 +579,7 @@ section {
 /* contact form */
 
 .contact-form {
-  @apply animate-[fade-in_1s_ease-out] opacity-0;
+  @apply animate-[fade-in_2.5s_ease-out] opacity-0;
 
   animation-fill-mode: forwards;
   animation-play-state: paused;
