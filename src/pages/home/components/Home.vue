@@ -385,7 +385,8 @@ export default {
     });
 
     // contact form
-    document.querySelector('.contact-form').style.animationDelay = careerItems.length * 500 + 'ms';
+    document.querySelector('.contact-form').style.animationDelay =
+      careerItems.length * 500 + 500 /* animation duration */ + 'ms';
 
     // scroll animations
     window.addEventListener('scroll', this.animateElements, { passive: true });
