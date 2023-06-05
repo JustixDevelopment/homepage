@@ -378,10 +378,14 @@ export default {
     this.updateProject();
 
     // career
+    const careerItems = document.querySelectorAll('.career-item');
     let currentCareerAnimationDelay = 0;
-    document.querySelectorAll('.career-item').forEach((careerItem) => {
+    careerItems.forEach((careerItem) => {
       careerItem.style.animationDelay = (currentCareerAnimationDelay += 500) + 'ms';
     });
+
+    // contact form
+    document.querySelector('.contact-form').style.animationDelay = careerItems.length * 500 + 'ms';
 
     // scroll animations
     window.addEventListener('scroll', this.animateElements, { passive: true });
@@ -576,8 +580,9 @@ section {
 /* contact form */
 
 .contact-form {
-  @apply animate-[fade-in_1s_ease-out];
+  @apply animate-[fade-in_1s_ease-out] opacity-0;
 
+  animation-fill-mode: forwards;
   animation-play-state: paused;
 }
 </style>
