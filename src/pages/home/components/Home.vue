@@ -25,6 +25,7 @@
         alt="Justus G."
         :width="142"
         :height="142"
+        eager
       />
       <h1 class="mt-5">Justus G.</h1>
       <p class="text-md mt-2.5 text-center font-title uppercase tracking-widest text-primary-300">
