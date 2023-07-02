@@ -1,2 +1,2 @@
-User-agent: *
-Allow: /
+User-Agent: * 
+Sitemap: https://www.justix.dev/sitemap.xml
